@@ -36,7 +36,7 @@
           <td><input type="text" name="fullname"></td>
         </tr>
         <tr>
-          <td><button type="submit" value="simpan">SIMPAN</button></td>
+          <td><button type="submit" value="simpan">DELETE</button></td>
         </tr>
       </table>
       </form>
