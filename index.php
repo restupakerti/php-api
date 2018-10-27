@@ -1,42 +1,45 @@
-<?php 
-$conn = mysqli_connect("localhost","root","","php-api");
-// Check connection
-if (mysqli_connect_errno()){
-	echo "Koneksi database gagal : " . mysqli_connect_error();
-}
-function query($query) {
-		global $conn;
-		$result = mysqli_query($conn, $query);
-		$box = [];
-		while ($data = mysqli_fetch_assoc($result)) {
-			$box[] = $data;
-		}
-		return $box;
-	}
-$students = query("SELECT * FROM user");	
-?>
+<?php
+	include "koneksi.php";
+ ?>
 
-
+<!DOCTYPE html>
 <html>
-	<head>
-		<title></title>
-	</head>
-	<body>
-		<table border="1px" cellpadding="10" cellspacing="0">
-	 		<tr>
-	 			<td bgcolor="#D6D8DC" align="center">Id</td>
-	 			<td bgcolor="#D6D8DC" align="center">Username</td>
-	 			<td bgcolor="#D6D8DC" align="center">Level</td>
-	 			<td bgcolor="#D6D8DC" align="center">Fullname</td>
-	 		</tr>
-	 		<?php foreach($students as $student) : ?>
-				 <tr>
-				 	<td><?= $student["id"] ?></td>
-				 	<td><?= $student["username"] ?></td>
-				 	<td><?= $student["level"] ?></td>
-				 	<td><?= $student["fullname"] ?></td>
-				 </tr>
-				<?php endforeach; ?>
-	 	</table>
- 	</body>
+<head>
+	<title>Data</title>
+</head>
+<body>
+	<a href="form.php">+ Tambah Data</a>
+	<table align="center" border="1" width="70%">
+		<tr>
+			<td colspan="6">
+				<h3><center>DATA</center></h3>
+			</td>
+		</tr>
+		<tr>
+			<th>ID</th>
+			<th>Username</th>
+			<th>Password</th>
+			<th>Level</th>
+			<th>Fullname</th>
+			<th>Action</th>
+		</tr>
+			<?php
+				$qry = mysqli_query($conn,"SELECT * FROM user");
+				while($data = mysqli_fetch_array($qry)){
+			 ?>
+		<tr>
+			<td align="center"><?php echo $data['id']; ?></td>
+			<td><?php echo $data['username']; ?></td>
+			<td><?php echo $data['password']; ?></td>
+			<td><?php echo $data['level']; ?></td>
+			<td><?php echo $data['fullname']; ?></td>
+			<td align="center">
+				<a href="edit.php?id=<?php echo $data['id']; ?>">Edit</a>
+				<a href="delete.php?id=<?php echo $data['id']; ?>">Delete</a>
+			</td>
+		</tr>
+
+	<?php } ?>
+	</table>
+</body>
 </html>

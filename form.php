@@ -8,44 +8,37 @@
   
   <link rel="stylesheet" type="text/css" href="edit.css">
 </head>
-<body>
+<body>s
 <form name="" method="POST" action="index.php" id="php-api"> 
-        <div>
-          <h1> SIGN IN </h1>
-        </div>
-        <div class="form">
-          <label for="">Id</label><br>
-          <input type="text" name="Id" style="background-color: #f7f7f7">
-        </div>
-<br>
-        <div class="form">
-          <label for="">Username</label><br>
-          <input type="text" name="Username" style="background-color: #f7f7f7">
-        </div>
-<br>
-        <div class="form">
-          <label for="">Password</label><br>
-          <input type="password" name="Password" style="background-color: #f7f7f7">
-        </div>
-<br>
-        <div class="form">
-          <label >Level</label><br>
-          <select name="Level" style="background-color: #f7f7f7">
-            <option> </option>
-            <option> User</option>
-            <option> Admin</option>
-            <option> Guest</option>
-          </select>
-        </div>
-<br>
-        <div class="form">
-          <label for="">Fullname</label><br>
-          <input type="text" name="Fullname" style="background-color: #f7f7f7" >
-        </div>
-<br><br>
-        <div class="form">
-          <input class="bg-blue" type="submit" name="submit" value="SUBMIT">
-        </div>
+         <table>
+        <tr>
+          <td>ID</td>
+          <td><input type="text" name="id"></td>
+        </tr>
+        <tr>
+          <td>Username</td>
+          <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top">Level</td>
+          <td>
+            <input type="radio" name="level" value="admin">Admin<br>
+            <input type="radio" name="level" value="user">User<br>
+            <input type="radio" name="level" value="guest">Guest
+          </td>
+        </tr>
+        <tr>
+          <td>Fullname</td>
+          <td><input type="text" name="fullname"></td>
+        </tr>
+        <tr>
+          <td><button type="submit" value="simpan">SIMPAN</button></td>
+        </tr>
+      </table>
       </form>
 </body>
 </html>
